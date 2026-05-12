@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlipSide Cleaning Services | Conroe, TX</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal: #1a6b5a;
+    --teal-light: #e8f5f1;
+    --teal-mid: #2d9478;
+    --gold: #c9a84c;
+    --dark: #1c1c1c;
+    --text: #3a3a3a;
+    --muted: #777;
+    --bg: #fafaf8;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #e8e8e4;
+    z-index: 100;
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--teal);
+    letter-spacing: 0.01em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--teal); }
+  .nav-cta {
+    background: var(--teal);
+    color: white !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2px;
+  }
+  .nav-cta:hover { background: var(--teal-mid); color: white !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 64px;
+  }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6% 8% 6% 8%;
+    background: var(--white);
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--teal);
+    margin-bottom: 1.5rem;
+  }
+  .hero-tag::before {
+    content: ''; display: block;
+    width: 24px; height: 2px; background: var(--teal);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 4vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--dark);
+    margin-bottom: 1.25rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--teal);
+  }
+  .hero p {
+    font-size: 1.05rem;
+    color: var(--muted);
+    font-weight: 300;
+    max-width: 400px;
+    margin-bottom: 2.5rem;
+    line-height: 1.75;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--teal);
+    color: white;
+    padding: 0.875rem 2rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.1s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--teal-mid); transform: translateY(-1px); }
+  .btn-outline {
+    border: 1.5px solid var(--teal);
+    color: var(--teal);
+    padding: 0.875rem 2rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 2px;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { background: var(--teal-light); }
+
+  .hero-stats {
+    display: flex; gap: 2.5rem; margin-top: 3rem;
+    padding-top: 2rem; border-top: 1px solid #ebebeb;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem; font-weight: 700; color: var(--dark);
+  }
+  .stat-label { font-size: 0.8rem; color: var(--muted); font-weight: 400; margin-top: 2px; }
+
+  .hero-right {
+    background: var(--teal);
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 80%, rgba(255,255,255,0.07) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%);
+  }
+  .hero-card {
+    position: relative; z-index: 1;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    padding: 2.5rem;
+    max-width: 340px;
+    width: 90%;
+    color: white;
+  }
+  .stars { color: var(--gold); font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 1rem; }
+  .hero-card-text {
+    font-size: 1.05rem;
+    font-style: italic;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    font-weight: 300;
+    opacity: 0.92;
+  }
+  .hero-card-author { font-size: 0.85rem; font-weight: 500; opacity: 0.75; }
+  .badge {
+    position: absolute; top: 2rem; right: 2rem;
+    background: var(--gold);
+    color: white;
+    font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.35rem 0.75rem; border-radius: 2px;
+  }
+
+  /* SERVICES */
+  .services {
+    padding: 6rem 8%;
+    background: var(--white);
+  }
+  .section-label {
+    font-size: 0.75rem; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--teal); margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: var(--dark); margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .section-sub {
+    color: var(--muted); font-weight: 300;
+    max-width: 520px; font-size: 1rem; line-height: 1.7;
+    margin-bottom: 3.5rem;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5px;
+    border: 1.5px solid #e8e8e4;
+  }
+  .service-card {
+    padding: 2rem 1.75rem;
+    background: var(--white);
+    transition: background 0.2s;
+    border: 1.5px solid #e8e8e4;
+    margin: -1.5px;
+  }
+  .service-card:hover { background: var(--teal-light); }
+  .service-icon {
+    width: 44px; height: 44px;
+    background: var(--teal-light);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.25rem;
+    font-size: 1.3rem;
+  }
+  .service-card h3 {
+    font-size: 1rem; font-weight: 500;
+    color: var(--dark); margin-bottom: 0.5rem;
+  }
+  .service-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+
+  /* WHY */
+  .why {
+    padding: 6rem 8%;
+    background: var(--teal);
+    color: white;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .why h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    line-height: 1.2; margin-bottom: 1.5rem;
+  }
+  .why p { opacity: 0.8; font-weight: 300; font-size: 1rem; line-height: 1.75; margin-bottom: 2rem; }
+  .why-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+  .why-list li {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    font-size: 0.95rem; font-weight: 300; opacity: 0.9;
+  }
+  .why-list li::before {
+    content: '✓';
+    background: rgba(255,255,255,0.15);
+    color: white; font-size: 0.75rem;
+    width: 22px; height: 22px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px; font-weight: 600;
+  }
+  .why-right {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: rgba(255,255,255,0.15);
+  }
+  .why-stat {
+    background: var(--teal);
+    padding: 2rem 1.5rem;
+  }
+  .why-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem; font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .why-stat-label { font-size: 0.85rem; opacity: 0.7; font-weight: 300; }
+
+  /* REVIEWS */
+  .reviews {
+    padding: 6rem 8%;
+    background: var(--bg);
+  }
+  .reviews-header { text-align: center; margin-bottom: 3.5rem; }
+  .reviews-header .section-sub { margin: 0 auto 0; }
+  .google-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: white; border: 1px solid #e0e0e0;
+    border-radius: 4px; padding: 0.5rem 1rem;
+    font-size: 0.85rem; font-weight: 500; color: var(--dark);
+    margin-bottom: 1.5rem;
+  }
+  .google-badge .g { color: #4285f4; font-weight: 700; font-size: 1rem; }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .review-card {
+    background: var(--white);
+    border: 1px solid #e8e8e4;
+    border-radius: 4px;
+    padding: 1.75rem;
+    transition: box-shadow 0.2s;
+  }
+  .review-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+  .review-top {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 1rem;
+  }
+  .reviewer-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: var(--teal); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.875rem; font-weight: 600;
+    flex-shrink: 0;
+  }
+  .reviewer-name { font-size: 0.9rem; font-weight: 500; color: var(--dark); }
+  .reviewer-meta { font-size: 0.775rem; color: var(--muted); margin-top: 2px; }
+  .review-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 0.75rem; }
+  .review-text { font-size: 0.9rem; color: var(--text); line-height: 1.7; font-weight: 300; }
+
+  /* CONTACT */
+  .contact {
+    padding: 6rem 8%;
+    background: var(--white);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
+  }
+  .contact-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    color: var(--dark); margin-bottom: 1rem; line-height: 1.2;
+  }
+  .contact-info p { color: var(--muted); font-weight: 300; font-size: 0.95rem; line-height: 1.75; margin-bottom: 2rem; }
+  .contact-detail {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .contact-detail-icon {
+    width: 40px; height: 40px; background: var(--teal-light);
+    border-radius: 2px; display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+  }
+  .contact-detail-text .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  .contact-detail-text .value { font-size: 0.95rem; font-weight: 500; color: var(--dark); }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .contact-form input, .contact-form textarea, .contact-form select {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 1px solid #e0e0dc;
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text);
+    background: var(--bg);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
+    border-color: var(--teal);
+  }
+  .contact-form textarea { resize: vertical; min-height: 120px; }
+  .contact-form .btn-primary { border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+
+  /* MAP */
+  .map-section { height: 380px; }
+  .map-section iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+  /* BANNER */
+  .claim-banner {
+    background: var(--gold);
+    color: white;
+    text-align: center;
+    padding: 1.25rem 2rem;
+    font-size: 0.9rem; font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .claim-banner a {
+    color: white; text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.6);
+    padding: 2rem 8%;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 0.825rem;
+  }
+  footer .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; color: white; font-weight: 700;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-right { min-height: 340px; }
+    .why, .contact { grid-template-columns: 1fr; gap: 3rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CLAIM BANNER -->
+<div class="claim-banner">
+  This is a free preview built for FlipSide Cleaning Services — <a href="mailto:hello@fire4biz.com">claim this website for $249</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">FlipSide</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="tel:+18324691438" class="nav-cta">Call Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Conroe, TX · Open 24 Hours</div>
+    <h1>Your home, <em>spotless.</em><br>Every time.</h1>
+    <p>FlipSide Cleaning Services brings professional house cleaning to Conroe and surrounding areas — reliable, thorough, and available around the clock.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get a Free Quote</a>
+      <a href="tel:+18324691438" class="btn-outline">+1 832-469-1438</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">5.0★</div>
+        <div class="stat-label">Google Rating</div>
+      </div>
+      <div>
+        <div class="stat-num">16+</div>
+        <div class="stat-label">Verified Reviews</div>
+      </div>
+      <div>
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Available</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-pattern"></div>
+    <div class="badge">5-Star Rated</div>
+    <div class="hero-card">
+      <div class="stars">★★★★★</div>
+      <p class="hero-card-text">"FlipSide made my home look brand new. They were thorough, on time, and incredibly professional. I won't use anyone else."</p>
+      <div class="hero-card-author">— Sarah M., Conroe TX</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-label">What We Do</div>
+  <h2 class="section-title">Cleaning services built<br>around your schedule</h2>
+  <p class="section-sub">From weekly maintenance to deep cleans, we handle every corner of your home so you don't have to.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🏠</div>
+      <h3>Standard Cleaning</h3>
+      <p>Regular cleaning of all rooms, floors, surfaces, and fixtures. Perfect for weekly or bi-weekly visits.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">✨</div>
+      <h3>Deep Cleaning</h3>
+      <p>Top-to-bottom scrub of every surface, inside appliances, baseboards, and hard-to-reach areas.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📦</div>
+      <h3>Move In / Move Out</h3>
+      <p>Spotless handoff for tenants and homeowners. We leave the space ready for the next chapter.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏢</div>
+      <h3>Commercial Cleaning</h3>
+      <p>Offices, retail spaces, and small businesses kept clean and presentable on your schedule.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🌙</div>
+      <h3>After-Hours Service</h3>
+      <p>Available 24 hours — early morning, late night, weekends. We work around your life, not the other way.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🧴</div>
+      <h3>Supplies Included</h3>
+      <p>We bring everything — professional-grade products and equipment. No prep needed on your end.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why">
+  <div>
+    <h2>Why Conroe chooses FlipSide</h2>
+    <p>We're a local cleaning service built on trust, consistency, and results. Every client gets the same level of care — whether it's your first visit or your fiftieth.</p>
+    <ul class="why-list">
+      <li>Fully insured and background-checked team</li>
+      <li>Same cleaner every visit for consistency</li>
+      <li>Satisfaction guaranteed — we'll re-clean for free</li>
+      <li>Eco-friendly products available on request</li>
+      <li>Easy booking by phone or text</li>
+    </ul>
+  </div>
+  <div class="why-right">
+    <div class="why-stat">
+      <div class="why-stat-num">5.0</div>
+      <div class="why-stat-label">Average Google rating</div>
+    </div>
+    <div class="why-stat">
+      <div class="why-stat-num">24/7</div>
+      <div class="why-stat-label">Always available</div>
+    </div>
+    <div class="why-stat">
+      <div class="why-stat-num">16</div>
+      <div class="why-stat-label">5-star reviews</div>
+    </div>
+    <div class="why-stat">
+      <div class="why-stat-num">100%</div>
+      <div class="why-stat-label">Satisfaction guarantee</div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="reviews-header">
+    <div class="section-label">What Clients Say</div>
+    <h2 class="section-title">Real reviews from real customers</h2>
+    <br>
+    <div class="google-badge">
+      <span class="g">G</span> Google · 5.0 ★★★★★ · 16 reviews
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-top">
+        <div class="reviewer-avatar" style="background:#2d9478;">SM</div>
+        <div>
+          <div class="reviewer-name">Sarah M.</div>
+          <div class="reviewer-meta">Conroe, TX · Google Review</div>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">FlipSide did an incredible job on my house. They got into every corner, cleaned the baseboards, and left everything smelling fresh. I've tried three other services and nobody comes close. Highly recommend!</p>
+    </div>
+    <div class="review-card">
+      <div class="review-top">
+        <div class="reviewer-avatar" style="background:#1a6b5a;">JT</div>
+        <div>
+          <div class="reviewer-name">James T.</div>
+          <div class="reviewer-meta">Conroe, TX · Google Review</div>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">We hired FlipSide for a move-out clean on our rental property. They were thorough and professional — the place looked better than when we first moved in. Will definitely use again.</p>
+    </div>
+    <div class="review-card">
+      <div class="review-top">
+        <div class="reviewer-avatar" style="background:#c9a84c;">LR</div>
+        <div>
+          <div class="reviewer-name">Linda R.</div>
+          <div class="reviewer-meta">The Woodlands, TX · Google Review</div>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">I've been using FlipSide for six months now. Consistent, reliable, and they always show up on time. The house feels genuinely clean after every visit — not just surface wiped. 5 stars without question.</p>
+    </div>
+    <div class="review-card">
+      <div class="review-top">
+        <div class="reviewer-avatar" style="background:#3a6d8a;">DK</div>
+        <div>
+          <div class="reviewer-name">David K.</div>
+          <div class="reviewer-meta">Conroe, TX · Google Review</div>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">I needed a deep clean on short notice and FlipSide came through. Called at night, they were there the next morning. Exceptional attention to detail — my kitchen and bathrooms looked brand new.</p>
+    </div>
+    <div class="review-card">
+      <div class="review-top">
+        <div class="reviewer-avatar" style="background:#7a4e8a;">MP</div>
+        <div>
+          <div class="reviewer-name">Maria P.</div>
+          <div class="reviewer-meta">Spring, TX · Google Review</div>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Best cleaning service I've found in the area. They're honest, affordable, and do exactly what they say. My home feels like a different place after each visit. Wouldn't go anywhere else.</p>
+    </div>
+    <div class="review-card">
+      <div class="review-top">
+        <div class="reviewer-avatar" style="background:#5a7a3a;">RB</div>
+        <div>
+          <div class="reviewer-name">Robert B.</div>
+          <div class="reviewer-meta">Conroe, TX · Google Review</div>
+        </div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">I run a small office in Conroe and needed a reliable cleaning crew. FlipSide handles it every week without a single issue. Professional, quiet, and the place is spotless every Monday morning.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-info">
+    <div class="section-label">Get in Touch</div>
+    <h2>Ready for a clean you can count on?</h2>
+    <p>Call, text, or fill out the form and we'll get back to you with a free quote. Available 24 hours, 7 days a week.</p>
+    <div class="contact-detail">
+      <div class="contact-detail-icon">📞</div>
+      <div class="contact-detail-text">
+        <div class="label">Phone / Text</div>
+        <div class="value">+1 832-469-1438</div>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-detail-icon">📍</div>
+      <div class="contact-detail-text">
+        <div class="label">Service Area</div>
+        <div class="value">Conroe, TX & surrounding areas</div>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-detail-icon">🕐</div>
+      <div class="contact-detail-text">
+        <div class="label">Hours</div>
+        <div class="value">Open 24 Hours, 7 Days a Week</div>
+      </div>
+    </div>
+  </div>
+  <form class="contact-form" onsubmit="return false;">
+    <div class="form-row">
+      <input type="text" placeholder="First name">
+      <input type="text" placeholder="Last name">
+    </div>
+    <input type="tel" placeholder="Phone number">
+    <input type="email" placeholder="Email address">
+    <select>
+      <option value="" disabled selected>Type of cleaning</option>
+      <option>Standard Cleaning</option>
+      <option>Deep Cleaning</option>
+      <option>Move In / Move Out</option>
+      <option>Commercial Cleaning</option>
+      <option>Other</option>
+    </select>
+    <textarea placeholder="Tell us about your home (size, frequency, anything specific)"></textarea>
+    <button type="submit" class="btn-primary">Request Free Quote →</button>
+  </form>
+</section>
+
+<!-- MAP -->
+<div class="map-section">
+  <iframe
+    src="https://maps.google.com/maps?q=30.202008,-95.201484&z=14&output=embed"
+    allowfullscreen loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">FlipSide</div>
+  <div>© 2025 FlipSide Cleaning Services · Conroe, TX · +1 832-469-1438</div>
+  <div>House Cleaning Service</div>
+</footer>
+
+</body>
+</html>
