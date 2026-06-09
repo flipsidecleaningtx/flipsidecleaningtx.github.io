@@ -1,679 +1,721 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FlipSide Cleaning Services | Conroe, TX</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FlipSide Cleaning Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      /* Fresh, Clean Teal & Cyan Palette for a Cleaning Service */
+      --primary: #007c91; /* Deep Teal */
+      --secondary: #00acc1; /* Bright Cyan */
+      --accent: #fbc02d; /* Gold for stars */
+      --dark: #1a2628; 
+      --light: #f4fbfc;
+      --soft: #e0f7fa;
+    }
 
-  :root {
-    --teal: #1a6b5a;
-    --teal-light: #e8f5f1;
-    --teal-mid: #2d9478;
-    --gold: #c9a84c;
-    --dark: #1c1c1c;
-    --text: #3a3a3a;
-    --muted: #777;
-    --bg: #fafaf8;
-    --white: #ffffff;
-  }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    color: var(--text);
-    background: var(--bg);
-    font-size: 16px;
-    line-height: 1.6;
-  }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid #e8e8e4;
-    z-index: 100;
-    padding: 0 5%;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 64px;
-  }
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--teal);
-    letter-spacing: 0.01em;
-  }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    text-decoration: none;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--text);
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--teal); }
-  .nav-cta {
-    background: var(--teal);
-    color: white !important;
-    padding: 0.5rem 1.25rem;
-    border-radius: 2px;
-  }
-  .nav-cta:hover { background: var(--teal-mid); color: white !important; }
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2.5rem;
+      background: rgba(244,251,252,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,124,145,0.12);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; font-weight: 900;
+      color: var(--primary);
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--secondary); font-weight: 700; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; font-size: 0.88rem; font-weight: 500;
+      color: var(--dark); letter-spacing: 0.04em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-cta {
+      background: var(--primary); color: #fff;
+      border: none; padding: 0.6rem 1.4rem;
+      border-radius: 2rem; font-size: 0.85rem; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      letter-spacing: 0.03em;
+    }
+    .nav-cta:hover { background: #005f70; transform: translateY(-1px); }
 
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 64px;
-  }
-  .hero-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 6% 8% 6% 8%;
-    background: var(--white);
-  }
-  .hero-tag {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--teal);
-    margin-bottom: 1.5rem;
-  }
-  .hero-tag::before {
-    content: ''; display: block;
-    width: 24px; height: 2px; background: var(--teal);
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.4rem, 4vw, 3.5rem);
-    font-weight: 700;
-    line-height: 1.15;
-    color: var(--dark);
-    margin-bottom: 1.25rem;
-  }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--teal);
-  }
-  .hero p {
-    font-size: 1.05rem;
-    color: var(--muted);
-    font-weight: 300;
-    max-width: 400px;
-    margin-bottom: 2.5rem;
-    line-height: 1.75;
-  }
-  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--teal);
-    color: white;
-    padding: 0.875rem 2rem;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    border-radius: 2px;
-    transition: background 0.2s, transform 0.1s;
-    display: inline-block;
-  }
-  .btn-primary:hover { background: var(--teal-mid); transform: translateY(-1px); }
-  .btn-outline {
-    border: 1.5px solid var(--teal);
-    color: var(--teal);
-    padding: 0.875rem 2rem;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    border-radius: 2px;
-    transition: all 0.2s;
-    display: inline-block;
-  }
-  .btn-outline:hover { background: var(--teal-light); }
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 7rem 2.5rem 4rem;
+      gap: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 70% 40%, rgba(0,172,193,0.08) 0%, transparent 70%),
+                  radial-gradient(ellipse 50% 50% at 20% 80%, rgba(0,124,145,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-text { position: relative; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--soft); border: 1px solid rgba(0,124,145,0.2);
+      padding: 0.4rem 1rem; border-radius: 2rem;
+      font-size: 0.8rem; font-weight: 600; color: var(--primary);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-badge .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--primary); animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(1.3)} }
 
-  .hero-stats {
-    display: flex; gap: 2.5rem; margin-top: 3rem;
-    padding-top: 2rem; border-top: 1px solid #ebebeb;
-  }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.75rem; font-weight: 700; color: var(--dark);
-  }
-  .stat-label { font-size: 0.8rem; color: var(--muted); font-weight: 400; margin-top: 2px; }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      line-height: 1.1;
+      font-weight: 900;
+      animation: fadeUp 0.7s 0.1s ease both;
+    }
+    h1 .line-primary { color: var(--primary); display: block; }
+    h1 .line-secondary { color: var(--secondary); display: block; }
 
-  .hero-right {
-    background: var(--teal);
-    position: relative;
-    overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .hero-pattern {
-    position: absolute; inset: 0;
-    background-image:
-      radial-gradient(circle at 20% 80%, rgba(255,255,255,0.07) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%);
-  }
-  .hero-card {
-    position: relative; z-index: 1;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 4px;
-    padding: 2.5rem;
-    max-width: 340px;
-    width: 90%;
-    color: white;
-  }
-  .stars { color: var(--gold); font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 1rem; }
-  .hero-card-text {
-    font-size: 1.05rem;
-    font-style: italic;
-    line-height: 1.7;
-    margin-bottom: 1.25rem;
-    font-weight: 300;
-    opacity: 0.92;
-  }
-  .hero-card-author { font-size: 0.85rem; font-weight: 500; opacity: 0.75; }
-  .badge {
-    position: absolute; top: 2rem; right: 2rem;
-    background: var(--gold);
-    color: white;
-    font-size: 0.7rem; font-weight: 600;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    padding: 0.35rem 0.75rem; border-radius: 2px;
-  }
+    .hero-sub {
+      margin-top: 1.2rem; font-size: 1.05rem; color: #444; line-height: 1.7;
+      max-width: 460px;
+      animation: fadeUp 0.7s 0.2s ease both;
+    }
+    .hero-actions {
+      display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+      animation: fadeUp 0.7s 0.3s ease both;
+    }
+    .btn-primary {
+      background: var(--primary); color: #fff;
+      padding: 0.85rem 2rem; border-radius: 2rem;
+      font-weight: 600; font-size: 0.95rem; text-decoration: none;
+      transition: background 0.2s, transform 0.15s; box-shadow: 0 4px 18px rgba(0,124,145,0.25);
+    }
+    .btn-primary:hover { background: #005f70; transform: translateY(-2px); }
+    .btn-outline {
+      border: 2px solid var(--secondary); color: var(--secondary);
+      padding: 0.85rem 2rem; border-radius: 2rem;
+      font-weight: 600; font-size: 0.95rem; text-decoration: none;
+      transition: background 0.2s, color 0.2s, transform 0.15s;
+    }
+    .btn-outline:hover { background: var(--secondary); color: #fff; transform: translateY(-2px); }
 
-  /* SERVICES */
-  .services {
-    padding: 6rem 8%;
-    background: var(--white);
-  }
-  .section-label {
-    font-size: 0.75rem; font-weight: 500;
-    text-transform: uppercase; letter-spacing: 0.12em;
-    color: var(--teal); margin-bottom: 0.75rem;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    color: var(--dark); margin-bottom: 1rem;
-    line-height: 1.2;
-  }
-  .section-sub {
-    color: var(--muted); font-weight: 300;
-    max-width: 520px; font-size: 1rem; line-height: 1.7;
-    margin-bottom: 3.5rem;
-  }
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5px;
-    border: 1.5px solid #e8e8e4;
-  }
-  .service-card {
-    padding: 2rem 1.75rem;
-    background: var(--white);
-    transition: background 0.2s;
-    border: 1.5px solid #e8e8e4;
-    margin: -1.5px;
-  }
-  .service-card:hover { background: var(--teal-light); }
-  .service-icon {
-    width: 44px; height: 44px;
-    background: var(--teal-light);
-    border-radius: 2px;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 1.25rem;
-    font-size: 1.3rem;
-  }
-  .service-card h3 {
-    font-size: 1rem; font-weight: 500;
-    color: var(--dark); margin-bottom: 0.5rem;
-  }
-  .service-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+    .hero-stats {
+      display: flex; gap: 2rem; margin-top: 2.5rem;
+      animation: fadeUp 0.7s 0.4s ease both;
+    }
+    .stat-item { }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 900; color: var(--primary);
+    }
+    .stat-label { font-size: 0.78rem; color: #777; text-transform: uppercase; letter-spacing: 0.06em; }
 
-  /* WHY */
-  .why {
-    padding: 6rem 8%;
-    background: var(--teal);
-    color: white;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
-  }
-  .why h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    line-height: 1.2; margin-bottom: 1.5rem;
-  }
-  .why p { opacity: 0.8; font-weight: 300; font-size: 1rem; line-height: 1.75; margin-bottom: 2rem; }
-  .why-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
-  .why-list li {
-    display: flex; align-items: flex-start; gap: 0.75rem;
-    font-size: 0.95rem; font-weight: 300; opacity: 0.9;
-  }
-  .why-list li::before {
-    content: '✓';
-    background: rgba(255,255,255,0.15);
-    color: white; font-size: 0.75rem;
-    width: 22px; height: 22px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; margin-top: 1px; font-weight: 600;
-  }
-  .why-right {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
-    background: rgba(255,255,255,0.15);
-  }
-  .why-stat {
-    background: var(--teal);
-    padding: 2rem 1.5rem;
-  }
-  .why-stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.25rem; font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-  .why-stat-label { font-size: 0.85rem; opacity: 0.7; font-weight: 300; }
+    /* Hero visual */
+    .hero-visual {
+      position: relative; display: flex; align-items: center; justify-content: center;
+      animation: fadeUp 0.8s 0.15s ease both;
+    }
+    .hero-card-stack { position: relative; width: 340px; }
+    .halo-ring {
+      width: 300px; height: 300px; border-radius: 50%;
+      background: linear-gradient(135deg, rgba(0,124,145,0.12), rgba(0,172,193,0.15));
+      border: 2px solid rgba(0,124,145,0.15);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto;
+      position: relative;
+    }
+    .halo-ring::before {
+      content: '';
+      position: absolute; inset: -14px;
+      border-radius: 50%;
+      border: 1px dashed rgba(0,124,145,0.3);
+      animation: spin 25s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .halo-icon {
+      font-size: 6rem; line-height: 1;
+      filter: drop-shadow(0 8px 20px rgba(0,124,145,0.2));
+    }
+    .floating-chip {
+      position: absolute;
+      background: #fff;
+      border-radius: 1rem;
+      padding: 0.7rem 1.1rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      font-size: 0.82rem; font-weight: 700;
+      display: flex; align-items: center; gap: 0.5rem;
+      animation: float 3s ease-in-out infinite;
+    }
+    .chip-1 { top: 30px; right: -20px; animation-delay: 0s; color: var(--primary); }
+    .chip-2 { bottom: 40px; left: -20px; animation-delay: 1s; color: var(--secondary); }
+    .chip-3 { top: 160px; right: -40px; animation-delay: 1.8s; color: #1a2628; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
 
-  /* REVIEWS */
-  .reviews {
-    padding: 6rem 8%;
-    background: var(--bg);
-  }
-  .reviews-header { text-align: center; margin-bottom: 3.5rem; }
-  .reviews-header .section-sub { margin: 0 auto 0; }
-  .google-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: white; border: 1px solid #e0e0e0;
-    border-radius: 4px; padding: 0.5rem 1rem;
-    font-size: 0.85rem; font-weight: 500; color: var(--dark);
-    margin-bottom: 1.5rem;
-  }
-  .google-badge .g { color: #4285f4; font-weight: 700; font-size: 1rem; }
-  .reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-  .review-card {
-    background: var(--white);
-    border: 1px solid #e8e8e4;
-    border-radius: 4px;
-    padding: 1.75rem;
-    transition: box-shadow 0.2s;
-  }
-  .review-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
-  .review-top {
-    display: flex; align-items: center; gap: 12px;
-    margin-bottom: 1rem;
-  }
-  .reviewer-avatar {
-    width: 42px; height: 42px; border-radius: 50%;
-    background: var(--teal); color: white;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.875rem; font-weight: 600;
-    flex-shrink: 0;
-  }
-  .reviewer-name { font-size: 0.9rem; font-weight: 500; color: var(--dark); }
-  .reviewer-meta { font-size: 0.775rem; color: var(--muted); margin-top: 2px; }
-  .review-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 0.75rem; }
-  .review-text { font-size: 0.9rem; color: var(--text); line-height: 1.7; font-weight: 300; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
-  /* CONTACT */
-  .contact {
-    padding: 6rem 8%;
-    background: var(--white);
-    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
-  }
-  .contact-info h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.8rem, 3vw, 2.4rem);
-    color: var(--dark); margin-bottom: 1rem; line-height: 1.2;
-  }
-  .contact-info p { color: var(--muted); font-weight: 300; font-size: 0.95rem; line-height: 1.75; margin-bottom: 2rem; }
-  .contact-detail {
-    display: flex; align-items: center; gap: 1rem;
-    margin-bottom: 1.25rem;
-  }
-  .contact-detail-icon {
-    width: 40px; height: 40px; background: var(--teal-light);
-    border-radius: 2px; display: flex; align-items: center; justify-content: center;
-    font-size: 1rem; flex-shrink: 0;
-  }
-  .contact-detail-text .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
-  .contact-detail-text .value { font-size: 0.95rem; font-weight: 500; color: var(--dark); }
+    /* ── BANNER ── */
+    #banner {
+      padding: 0 2.5rem 5rem;
+    }
+    .banner-inner {
+      background: linear-gradient(135deg, var(--dark) 0%, #1e3336 100%);
+      border-radius: 2rem;
+      padding: 3rem 3.5rem;
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: center; gap: 2rem;
+      position: relative; overflow: hidden;
+    }
+    .banner-inner::after {
+      content: '✦';
+      position: absolute; right: 200px; top: -20px;
+      font-size: 10rem; color: rgba(255,255,255,0.02);
+      pointer-events: none;
+    }
+    .banner-tagline {
+      font-size: 0.78rem; font-weight: 700; color: var(--secondary);
+      letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.7rem;
+    }
+    .banner-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      color: #fff; line-height: 1.25;
+    }
+    .banner-headline em { color: var(--secondary); font-style: normal; }
+    .banner-desc { color: rgba(255,255,255,0.75); font-size: 0.95rem; margin-top: 0.8rem; max-width: 520px; line-height: 1.6; }
+    .banner-wings {
+      font-size: 5rem; opacity: 0.4;
+      filter: grayscale(0.5);
+    }
 
-  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .contact-form input, .contact-form textarea, .contact-form select {
-    width: 100%;
-    padding: 0.875rem 1rem;
-    border: 1px solid #e0e0dc;
-    border-radius: 2px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.9rem;
-    color: var(--text);
-    background: var(--bg);
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
-    border-color: var(--teal);
-  }
-  .contact-form textarea { resize: vertical; min-height: 120px; }
-  .contact-form .btn-primary { border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+    /* ── SERVICES ── */
+    #services {
+      padding: 5rem 2.5rem;
+      background: var(--soft);
+    }
+    .section-header { text-align: center; margin-bottom: 3.5rem; }
+    .section-tag {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--secondary); margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900; line-height: 1.15;
+    }
+    .section-title span { color: var(--primary); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .service-card {
+      background: #fff; border-radius: 1.5rem;
+      padding: 2rem 1.8rem;
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: transform 0.25s, box-shadow 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+    .service-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem;
+    }
+    .service-desc { font-size: 0.88rem; color: #555; line-height: 1.6; }
 
-  /* MAP */
-  .map-section { height: 380px; }
-  .map-section iframe { width: 100%; height: 100%; border: 0; display: block; }
+    /* ── HIGHLIGHT SECTION ── */
+    #highlight {
+      padding: 5rem 2.5rem;
+      display: flex; justify-content: center;
+    }
+    .highlight-inner {
+      max-width: 850px; width: 100%;
+      background: linear-gradient(135deg, #fff, #f4fbfc);
+      border: 2px solid var(--secondary);
+      border-radius: 2rem;
+      padding: 3rem 3.5rem;
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 3rem; align-items: center;
+      box-shadow: 0 10px 30px rgba(0,124,145,0.05);
+    }
+    .highlight-icon-box { text-align: center; }
+    .highlight-icon { font-size: 5rem; line-height: 1; }
+    .highlight-label {
+      font-size: 0.7rem; color: #777; text-transform: uppercase; letter-spacing: 0.1em; text-align: center; margin-top: 1rem; font-weight: 700;
+    }
+    .highlight-tag {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--secondary); margin-bottom: 0.6rem;
+    }
+    .highlight-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; font-weight: 900; line-height: 1.2; margin-bottom: 0.8rem; color: var(--primary);
+    }
+    .highlight-desc { color: #555; font-size: 0.95rem; line-height: 1.65; }
 
-  /* BANNER */
-  .claim-banner {
-    background: var(--gold);
-    color: white;
-    text-align: center;
-    padding: 1.25rem 2rem;
-    font-size: 0.9rem; font-weight: 500;
-    letter-spacing: 0.02em;
-  }
-  .claim-banner a {
-    color: white; text-decoration: underline;
-    text-underline-offset: 3px;
-  }
+    /* ── REVIEWS ── */
+    #reviews {
+      padding: 5rem 2.5rem;
+      background: var(--soft);
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .review-card {
+      background: #fff; border-radius: 1.5rem;
+      padding: 1.8rem;
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: transform 0.25s, box-shadow 0.25s;
+      position: relative;
+    }
+    .review-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.06); }
+    .review-stars {
+      color: var(--accent); font-size: 1rem; margin-bottom: 0.8rem; letter-spacing: 2px;
+    }
+    .review-text {
+      font-size: 0.93rem; line-height: 1.65; color: #444;
+      font-style: italic; margin-bottom: 1.2rem;
+    }
+    .review-author {
+      display: flex; align-items: center; gap: 0.7rem;
+    }
+    .review-avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: #fff; font-weight: 700;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .review-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .review-name { font-weight: 700; font-size: 0.88rem; color: var(--dark); }
+    .review-badge { font-size: 0.75rem; color: var(--secondary); font-weight: 600; }
+    .recommend-tag {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      background: rgba(0,172,193,0.1); color: var(--secondary);
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+      padding: 0.25rem 0.7rem; border-radius: 1rem;
+      margin-bottom: 0.7rem;
+    }
 
-  /* FOOTER */
-  footer {
-    background: var(--dark);
-    color: rgba(255,255,255,0.6);
-    padding: 2rem 8%;
-    display: flex; align-items: center; justify-content: space-between;
-    font-size: 0.825rem;
-  }
-  footer .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem; color: white; font-weight: 700;
-  }
+    /* ── CONTACT ── */
+    #contact {
+      padding: 5rem 2.5rem;
+    }
+    .contact-inner {
+      max-width: 900px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: start;
+    }
+    .contact-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 900; margin-bottom: 1.5rem;
+    }
+    .contact-info h3 span { color: var(--primary); }
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .contact-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--soft); border: 1px solid rgba(0,124,145,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .contact-detail .label {
+      font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em;
+      color: #888; font-weight: 700; margin-bottom: 0.2rem;
+    }
+    .contact-detail .value {
+      font-size: 0.95rem; color: var(--dark); font-weight: 500;
+    }
+    .contact-detail a { color: var(--primary); text-decoration: none; font-weight: 600; }
+    .contact-detail a:hover { text-decoration: underline; }
 
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    .nav-links { display: none; }
-    .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-right { min-height: 340px; }
-    .why, .contact { grid-template-columns: 1fr; gap: 3rem; }
-    .form-row { grid-template-columns: 1fr; }
-    .hero-stats { gap: 1.5rem; }
-  }
-</style>
+    /* Book form */
+    .book-form h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-weight: 800; margin-bottom: 1.5rem;
+    }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label {
+      display: block; font-size: 0.78rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: #555; margin-bottom: 0.4rem;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 0.75rem 1rem;
+      border: 1.5px solid rgba(0,0,0,0.12);
+      border-radius: 0.75rem; font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem; background: #fff; color: var(--dark);
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none; border-color: var(--secondary);
+    }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .btn-submit {
+      width: 100%; background: var(--primary); color: #fff;
+      border: none; padding: 0.95rem; border-radius: 2rem;
+      font-size: 1rem; font-weight: 700;
+      cursor: pointer; font-family: 'DM Sans', sans-serif;
+      transition: background 0.2s, transform 0.15s;
+      letter-spacing: 0.03em;
+    }
+    .btn-submit:hover { background: #005f70; transform: translateY(-1px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark); color: rgba(255,255,255,0.7);
+      padding: 3rem 2.5rem;
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: center; gap: 2rem;
+    }
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; font-weight: 800;
+      color: #fff; margin-bottom: 0.5rem;
+    }
+    .footer-tagline { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+    .footer-right { text-align: right; }
+    .footer-links { display: flex; gap: 1.5rem; list-style: none; justify-content: flex-end; margin-bottom: 0.5rem; }
+    .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; font-weight: 500;}
+    .footer-links a:hover { color: var(--secondary); }
+    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.35); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      #hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; }
+      .hero-visual { display: none; }
+      .banner-inner { grid-template-columns: 1fr; padding: 2rem; }
+      .banner-wings { display: none; }
+      #services, #reviews, #highlight, #contact { padding: 4rem 1.5rem; }
+      .highlight-inner { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
+      .contact-inner { grid-template-columns: 1fr; }
+      footer { grid-template-columns: 1fr; text-align: center; }
+      .footer-links { justify-content: center; }
+      .footer-right { text-align: center; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- CLAIM BANNER -->
-<div class="claim-banner">
-  This is a free preview built for FlipSide Cleaning Services — <a href="mailto:hello@fire4biz.com">claim this website for $249</a>
-</div>
-
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">FlipSide</div>
+  <div class="nav-logo">FlipSide <span>Cleaning</span></div>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#highlight">About</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="tel:+18324691438" class="nav-cta">Call Now</a></li>
   </ul>
+  <a href="tel:+18324691438" class="nav-cta">📞 Call Now</a>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-tag">Conroe, TX · Open 24 Hours</div>
-    <h1>Your home, <em>spotless.</em><br>Every time.</h1>
-    <p>FlipSide Cleaning Services brings professional house cleaning to Conroe and surrounding areas — reliable, thorough, and available around the clock.</p>
-    <div class="hero-btns">
-      <a href="#contact" class="btn-primary">Get a Free Quote</a>
-      <a href="tel:+18324691438" class="btn-outline">+1 832-469-1438</a>
+<section id="hero">
+  <div class="hero-text">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      5.0★ Top-Rated Cleaning Service
+    </div>
+    <h1>
+      <span class="line-primary">Spotless Spaces,</span>
+      <span class="line-secondary">Happy</span>
+      Faces
+    </h1>
+    <p class="hero-sub">Professional, thorough, and affordable house cleaning services. Whether you need a deep clean, organization, or routine maintenance, we give you your home back. Open 24/7!</p>
+    <div class="hero-actions">
+      <a href="tel:+18324691438" class="btn-primary">✦ Get a Free Quote</a>
+      <a href="#services" class="btn-outline">View Services</a>
     </div>
     <div class="hero-stats">
-      <div>
+      <div class="stat-item">
         <div class="stat-num">5.0★</div>
         <div class="stat-label">Google Rating</div>
       </div>
-      <div>
-        <div class="stat-num">16+</div>
-        <div class="stat-label">Verified Reviews</div>
-      </div>
-      <div>
+      <div class="stat-item">
         <div class="stat-num">24/7</div>
-        <div class="stat-label">Available</div>
+        <div class="stat-label">Availability</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">10/10</div>
+        <div class="stat-label">Highly Recommended</div>
       </div>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-pattern"></div>
-    <div class="badge">5-Star Rated</div>
-    <div class="hero-card">
-      <div class="stars">★★★★★</div>
-      <p class="hero-card-text">"FlipSide made my home look brand new. They were thorough, on time, and incredibly professional. I won't use anyone else."</p>
-      <div class="hero-card-author">— Sarah M., Conroe TX</div>
+  <div class="hero-visual">
+    <div class="hero-card-stack">
+      <div class="halo-ring">
+        <div class="halo-icon">✨</div>
+      </div>
+      <div class="floating-chip chip-1">🧽 Deep Cleaning</div>
+      <div class="floating-chip chip-2">🏢 Office Cleaning</div>
+      <div class="floating-chip chip-3">🧹 Home Organization</div>
     </div>
+  </div>
+</section>
+
+<!-- BANNER -->
+<section id="banner">
+  <div class="banner-inner">
+    <div>
+      <div class="banner-tagline">FlipSide Cleaning Services</div>
+      <h2 class="banner-headline">
+        We don't just clean —<br>we give you <em>your time</em> back.
+      </h2>
+      <p class="banner-desc">Working multiple jobs or just trying to keep up with life? Let us handle the mess. Our punctual, detail-oriented team is here to make your home shine and smell great, affording you the peace of mind you deserve.</p>
+    </div>
+    <div class="banner-wings">🧼</div>
   </div>
 </section>
 
 <!-- SERVICES -->
-<section class="services" id="services">
-  <div class="section-label">What We Do</div>
-  <h2 class="section-title">Cleaning services built<br>around your schedule</h2>
-  <p class="section-sub">From weekly maintenance to deep cleans, we handle every corner of your home so you don't have to.</p>
+<section id="services">
+  <div class="section-header">
+    <div class="section-tag">What We Offer</div>
+    <h2 class="section-title">Our <span>Cleaning Services</span></h2>
+  </div>
   <div class="services-grid">
     <div class="service-card">
-      <div class="service-icon">🏠</div>
-      <h3>Standard Cleaning</h3>
-      <p>Regular cleaning of all rooms, floors, surfaces, and fixtures. Perfect for weekly or bi-weekly visits.</p>
+      <div class="service-icon">🏡</div>
+      <div class="service-name">House Cleaning</div>
+      <div class="service-desc">Thorough, top-to-bottom residential cleaning services to keep your living spaces fresh and comfortable.</div>
     </div>
     <div class="service-card">
       <div class="service-icon">✨</div>
-      <h3>Deep Cleaning</h3>
-      <p>Top-to-bottom scrub of every surface, inside appliances, baseboards, and hard-to-reach areas.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">📦</div>
-      <h3>Move In / Move Out</h3>
-      <p>Spotless handoff for tenants and homeowners. We leave the space ready for the next chapter.</p>
+      <div class="service-name">Deep Cleaning</div>
+      <div class="service-desc">Intensive detail-oriented cleaning tackling dirt and grime in those hard-to-reach areas of your home.</div>
     </div>
     <div class="service-card">
       <div class="service-icon">🏢</div>
-      <h3>Commercial Cleaning</h3>
-      <p>Offices, retail spaces, and small businesses kept clean and presentable on your schedule.</p>
+      <div class="service-name">Office Cleaning</div>
+      <div class="service-desc">Professional sanitation and organization for your workspace to maintain a clean, productive environment.</div>
     </div>
     <div class="service-card">
-      <div class="service-icon">🌙</div>
-      <h3>After-Hours Service</h3>
-      <p>Available 24 hours — early morning, late night, weekends. We work around your life, not the other way.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🧴</div>
-      <h3>Supplies Included</h3>
-      <p>We bring everything — professional-grade products and equipment. No prep needed on your end.</p>
+      <div class="service-icon">📦</div>
+      <div class="service-name">Home Organization</div>
+      <div class="service-desc">Expert organization suggestions and decluttering to maximize your space and reduce daily stress.</div>
     </div>
   </div>
 </section>
 
-<!-- WHY -->
-<section class="why">
-  <div>
-    <h2>Why Conroe chooses FlipSide</h2>
-    <p>We're a local cleaning service built on trust, consistency, and results. Every client gets the same level of care — whether it's your first visit or your fiftieth.</p>
-    <ul class="why-list">
-      <li>Fully insured and background-checked team</li>
-      <li>Same cleaner every visit for consistency</li>
-      <li>Satisfaction guaranteed — we'll re-clean for free</li>
-      <li>Eco-friendly products available on request</li>
-      <li>Easy booking by phone or text</li>
-    </ul>
-  </div>
-  <div class="why-right">
-    <div class="why-stat">
-      <div class="why-stat-num">5.0</div>
-      <div class="why-stat-label">Average Google rating</div>
+<!-- HIGHLIGHT SECTION -->
+<section id="highlight">
+  <div class="highlight-inner">
+    <div class="highlight-icon-box">
+      <div class="highlight-icon">⏱️</div>
+      <div class="highlight-label">Open 24 Hours</div>
     </div>
-    <div class="why-stat">
-      <div class="why-stat-num">24/7</div>
-      <div class="why-stat-label">Always available</div>
-    </div>
-    <div class="why-stat">
-      <div class="why-stat-num">16</div>
-      <div class="why-stat-label">5-star reviews</div>
-    </div>
-    <div class="why-stat">
-      <div class="why-stat-num">100%</div>
-      <div class="why-stat-label">Satisfaction guarantee</div>
+    <div>
+      <div class="highlight-tag">★ The FlipSide Promise</div>
+      <h3 class="highlight-title">Punctual, Professional, Thorough.</h3>
+      <p class="highlight-desc">
+        We pride ourselves on our attention to detail and our commitment to ensuring every client is fully satisfied before we move on to the next area. Affordable, reliable, and equipped to handle the toughest messes—give us a call and see why our clients love us.
+      </p>
     </div>
   </div>
 </section>
 
 <!-- REVIEWS -->
-<section class="reviews" id="reviews">
-  <div class="reviews-header">
-    <div class="section-label">What Clients Say</div>
-    <h2 class="section-title">Real reviews from real customers</h2>
-    <br>
-    <div class="google-badge">
-      <span class="g">G</span> Google · 5.0 ★★★★★ · 16 reviews
-    </div>
+<section id="reviews">
+  <div class="section-header">
+    <div class="section-tag">Client Love</div>
+    <h2 class="section-title">What <span>Our Clients</span> Say</h2>
   </div>
   <div class="reviews-grid">
+    <!-- Review 1: Lissette Nunez -->
     <div class="review-card">
-      <div class="review-top">
-        <div class="reviewer-avatar" style="background:#2d9478;">SM</div>
+      <div class="recommend-tag">✔ 10/10 Recommended</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Absolutely love these lady's they are amazing!!! The amount they can do in a small amount of time is amazing!!! The quality of work, definitely amazing!! 10/10 would recommend you won't regret it. My house was a disaster and working 2 jobs was making it hard to keep up, these lady's gave me my home back and I will be forever grateful 💕💕💕"</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background: #e65100;">L</div>
         <div>
-          <div class="reviewer-name">Sarah M.</div>
-          <div class="reviewer-meta">Conroe, TX · Google Review</div>
+          <div class="review-name">Lissette Nunez</div>
+          <div class="review-badge">Google Review</div>
         </div>
       </div>
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">FlipSide did an incredible job on my house. They got into every corner, cleaned the baseboards, and left everything smelling fresh. I've tried three other services and nobody comes close. Highly recommend!</p>
     </div>
+
+    <!-- Review 2: Lequnna Johnson -->
     <div class="review-card">
-      <div class="review-top">
-        <div class="reviewer-avatar" style="background:#1a6b5a;">JT</div>
+      <div class="recommend-tag">✔ 10/10 Recommended</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Felt very comfortable with Michaela and Raina! My home was fresh and they even offered organization suggestions. They are very affordable and great people! I highly recommend!"</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background: #f8bbd0; color: #880e4f;">LJ</div>
         <div>
-          <div class="reviewer-name">James T.</div>
-          <div class="reviewer-meta">Conroe, TX · Google Review</div>
+          <div class="review-name">Lequnna Johnson</div>
+          <div class="review-badge">Google Review</div>
         </div>
       </div>
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">We hired FlipSide for a move-out clean on our rental property. They were thorough and professional — the place looked better than when we first moved in. Will definitely use again.</p>
     </div>
+
+    <!-- Review 3: Skip Browder -->
     <div class="review-card">
-      <div class="review-top">
-        <div class="reviewer-avatar" style="background:#c9a84c;">LR</div>
+      <div class="recommend-tag">✔ 10/10 Recommended</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"FlipSide is a great cleaning service. I have used them 3 times and they are punctual, professional, thorough and strive to do a great job. They are very detail oriented. Give them a call. 💕💕💕💕💕"</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background: #ef6c00;">S</div>
         <div>
-          <div class="reviewer-name">Linda R.</div>
-          <div class="reviewer-meta">The Woodlands, TX · Google Review</div>
+          <div class="review-name">Skip Browder</div>
+          <div class="review-badge">Google Review</div>
         </div>
       </div>
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">I've been using FlipSide for six months now. Consistent, reliable, and they always show up on time. The house feels genuinely clean after every visit — not just surface wiped. 5 stars without question.</p>
     </div>
+
+    <!-- Review 4: Karen Johnson -->
     <div class="review-card">
-      <div class="review-top">
-        <div class="reviewer-avatar" style="background:#3a6d8a;">DK</div>
+      <div class="recommend-tag">✔ 10/10 Recommended</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Raina did a great job. She made everything shine and smell good! We will definitely use her again."</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background: #1565c0;">K</div>
         <div>
-          <div class="reviewer-name">David K.</div>
-          <div class="reviewer-meta">Conroe, TX · Google Review</div>
+          <div class="review-name">Karen Johnson</div>
+          <div class="review-badge">Google Review</div>
         </div>
       </div>
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">I needed a deep clean on short notice and FlipSide came through. Called at night, they were there the next morning. Exceptional attention to detail — my kitchen and bathrooms looked brand new.</p>
     </div>
+
+    <!-- Review 5: Rachel Toczek -->
     <div class="review-card">
-      <div class="review-top">
-        <div class="reviewer-avatar" style="background:#7a4e8a;">MP</div>
+      <div class="recommend-tag">✔ 10/10 Recommended</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"She was extremely professional and made sure I was happy before she moved on to another area!! Highly recommend if you need your home or office cleaned."</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background: #424242;">R</div>
         <div>
-          <div class="reviewer-name">Maria P.</div>
-          <div class="reviewer-meta">Spring, TX · Google Review</div>
+          <div class="review-name">Rachel Toczek</div>
+          <div class="review-badge">Google Review</div>
         </div>
       </div>
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">Best cleaning service I've found in the area. They're honest, affordable, and do exactly what they say. My home feels like a different place after each visit. Wouldn't go anywhere else.</p>
-    </div>
-    <div class="review-card">
-      <div class="review-top">
-        <div class="reviewer-avatar" style="background:#5a7a3a;">RB</div>
-        <div>
-          <div class="reviewer-name">Robert B.</div>
-          <div class="reviewer-meta">Conroe, TX · Google Review</div>
-        </div>
-      </div>
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">I run a small office in Conroe and needed a reliable cleaning crew. FlipSide handles it every week without a single issue. Professional, quiet, and the place is spotless every Monday morning.</p>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="contact-info">
-    <div class="section-label">Get in Touch</div>
-    <h2>Ready for a clean you can count on?</h2>
-    <p>Call, text, or fill out the form and we'll get back to you with a free quote. Available 24 hours, 7 days a week.</p>
-    <div class="contact-detail">
-      <div class="contact-detail-icon">📞</div>
-      <div class="contact-detail-text">
-        <div class="label">Phone / Text</div>
-        <div class="value">+1 832-469-1438</div>
+<section id="contact">
+  <div class="section-header">
+    <div class="section-tag">Get In Touch</div>
+    <h2 class="section-title">Schedule Your <span>Cleaning Today</span></h2>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-info">
+      <h3>We're <span>ready</span> to clean.</h3>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div class="contact-detail">
+          <div class="label">Service Area</div>
+          <div class="value">Houston, TX Area<br>& Surrounding Communities</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div class="contact-detail">
+          <div class="label">Phone (Open 24/7)</div>
+          <div class="value"><a href="tel:+18324691438">+1 832-469-1438</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">💬</div>
+        <div class="contact-detail">
+          <div class="label">Online</div>
+          <div class="value"><a href="#">Check us out on Google Maps</a></div>
+        </div>
       </div>
     </div>
-    <div class="contact-detail">
-      <div class="contact-detail-icon">📍</div>
-      <div class="contact-detail-text">
-        <div class="label">Service Area</div>
-        <div class="value">Conroe, TX & surrounding areas</div>
+    <div class="book-form">
+      <h4>Request a Quote</h4>
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" placeholder="John Doe" />
       </div>
-    </div>
-    <div class="contact-detail">
-      <div class="contact-detail-icon">🕐</div>
-      <div class="contact-detail-text">
-        <div class="label">Hours</div>
-        <div class="value">Open 24 Hours, 7 Days a Week</div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="+1 (832) 000-0000" />
       </div>
+      <div class="form-group">
+        <label>Service Type</label>
+        <select>
+          <option>House Cleaning</option>
+          <option>Deep Cleaning</option>
+          <option>Office Cleaning</option>
+          <option>Home Organization</option>
+          <option>Move-In / Move-Out</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Project Details</label>
+        <textarea placeholder="Tell us about your space and what you need cleaned..."></textarea>
+      </div>
+      <button class="btn-submit" onclick="alert('Thank you! We\'ll be in touch shortly to schedule your cleaning. ✨')">Send Request ✦</button>
     </div>
   </div>
-  <form class="contact-form" onsubmit="return false;">
-    <div class="form-row">
-      <input type="text" placeholder="First name">
-      <input type="text" placeholder="Last name">
-    </div>
-    <input type="tel" placeholder="Phone number">
-    <input type="email" placeholder="Email address">
-    <select>
-      <option value="" disabled selected>Type of cleaning</option>
-      <option>Standard Cleaning</option>
-      <option>Deep Cleaning</option>
-      <option>Move In / Move Out</option>
-      <option>Commercial Cleaning</option>
-      <option>Other</option>
-    </select>
-    <textarea placeholder="Tell us about your home (size, frequency, anything specific)"></textarea>
-    <button type="submit" class="btn-primary">Request Free Quote →</button>
-  </form>
 </section>
-
-<!-- MAP -->
-<div class="map-section">
-  <iframe
-    src="https://maps.google.com/maps?q=30.202008,-95.201484&z=14&output=embed"
-    allowfullscreen loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
-</div>
 
 <!-- FOOTER -->
 <footer>
-  <div class="logo">FlipSide</div>
-  <div>© 2025 FlipSide Cleaning Services · Conroe, TX · +1 832-469-1438</div>
-  <div>House Cleaning Service</div>
+  <div>
+    <div class="footer-brand">FlipSide Cleaning Services ✨</div>
+    <div class="footer-tagline">Exceptional cleaning for your home or office. Open 24/7.</div>
+  </div>
+  <div class="footer-right">
+    <ul class="footer-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="footer-copy">© 2024 FlipSide Cleaning Services. All rights reserved.</div>
+  </div>
 </footer>
 
 </body>
